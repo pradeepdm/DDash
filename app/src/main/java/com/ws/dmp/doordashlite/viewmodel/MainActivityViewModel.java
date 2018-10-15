@@ -2,6 +2,7 @@ package com.ws.dmp.doordashlite.viewmodel;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
+import android.support.annotation.VisibleForTesting;
 
 import com.github.leonardoxh.livedatacalladapter.Resource;
 import com.ws.dmp.doordashlite.di.DoorDashApp;
@@ -24,6 +25,11 @@ public class MainActivityViewModel extends ViewModel {
         DoorDashApp.getInstance()
                 .getApplicationComponent()
                 .inject(this);
+    }
+
+    @VisibleForTesting()
+    public MainActivityViewModel(Repository repository) {
+        this.repository = repository;
     }
 
     public LiveData<Resource<List<Restaurant>>> getAllRestaurants() {

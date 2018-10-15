@@ -1,15 +1,16 @@
 package com.ws.dmp.doordashlite.viewmodeltest;
 
 import com.ws.dmp.doordashlite.remote.Repository;
-import com.ws.dmp.doordashlite.utils.RetrofitFactory;
 import com.ws.dmp.doordashlite.viewmodel.RestaurantInfoViewModel;
 
-import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import okhttp3.mockwebserver.MockWebServer;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 
 /**
@@ -18,19 +19,19 @@ import okhttp3.mockwebserver.MockWebServer;
 @RunWith(MockitoJUnitRunner.class)
 public class RestaurantInfoViewModelTest {
 
+    @Mock
     Repository repository;
     RestaurantInfoViewModel restaurantInfoViewModel;
-    MockWebServer server;
 
     @Before
     public void setUp() throws Exception {
-        server = new MockWebServer();
-        repository = new Repository(RetrofitFactory.getInstance());
+        restaurantInfoViewModel = new RestaurantInfoViewModel(repository);
     }
 
-    @After
-    public void tearDown() throws Exception {
-        server.shutdown();
+    @Test
+    public void getRestaurantInfo_Test() {
+        restaurantInfoViewModel.getRestaurantInfo(10);
+        verify(repository, times(1)).getRestaurantInfo(10);
     }
 
 }
