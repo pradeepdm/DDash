@@ -84,23 +84,12 @@ public class RepositoryTest {
         mockedResponse.setBody(json);
         server.enqueue(mockedResponse);
 
-        Restaurant restaurantActual = repository.getRestaurantInfo(30).getValue().getResource();
-        assertNotNull(restaurantActual);
-        Gson gson = new Gson();
-
-        Restaurant restaurantExpected = gson.fromJson(json, Restaurant.class);
-        assertEquals(restaurantExpected.getId(), restaurantActual.getId());
-    }
-
-    @Test
-    public void getRestaurantInfo_Test_Path() throws IOException, InterruptedException {
-        MockResponse mockedResponse = new MockResponse();
-        String json = getStringFromResources(FILENAME_30);
-        mockedResponse.setBody(json);
-        server.enqueue(mockedResponse);
-
-        RecordedRequest request = server.takeRequest();
-        assertEquals(String.format("%s30/", END_POINT), request.getPath());
+        repository.getRestaurantInfo(30).observeForever(listResource -> {
+            Restaurant restaurantActual = listResource.getResource();
+            Gson gson = new Gson();
+            Restaurant restaurantExpected = gson.fromJson(json, Restaurant.class);
+            assertEquals(restaurantExpected.getId(), restaurantActual.getId());
+        });
     }
 
     private String getStringFromResources(String fileName) throws IOException {
