@@ -27,6 +27,8 @@ public class MainActivityViewModel extends ViewModel {
                 .inject(this);
     }
 
+
+    // Hack: Not the best approach.
     @VisibleForTesting()
     public MainActivityViewModel(Repository repository) {
         this.repository = repository;

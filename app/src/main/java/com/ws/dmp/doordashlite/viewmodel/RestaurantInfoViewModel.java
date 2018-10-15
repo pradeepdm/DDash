@@ -22,6 +22,7 @@ public class RestaurantInfoViewModel extends ViewModel {
                 .inject(this);
     }
 
+    // Hack: Not the best approach
     @VisibleForTesting()
     public RestaurantInfoViewModel(Repository repository) {
         this.repository = repository;
