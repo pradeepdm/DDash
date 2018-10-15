@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/outerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="top"
+    android:background="@android:color/background_light"
+    android:elevation="0dp"
+    android:orientation="vertical"
+    tools:targetApi="lollipop">
+
+
+    <ImageView
+        android:id="@+id/restaurantInfoImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_weight="2"
+        android:background="@drawable/layout_border"
+        android:contentDescription="@string/no_image"
+        android:foregroundGravity="top"
+        android:padding="@dimen/padding_10" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_5">
+
+        <TextView
+            android:id="@+id/restaurantName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_5"
+            android:gravity="center"
+            android:padding="@dimen/padding_5"
+            android:shadowColor="@android:color/black"
+            android:text="@string/restaurant_name"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimary"
+            android:textColorHighlight="@android:color/white"
+            android:textSize="@dimen/text_size_18"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:fontFamily="monospace"
+            android:padding="@dimen/padding_10"
+            android:shadowColor="@android:color/holo_orange_dark"
+            android:text="@string/food_description"
+            android:textColor="@android:color/background_dark"
+            android:textSize="@dimen/text_size_16"
+            android:textStyle="bold" />
+
+        <RatingBar
+            android:id="@+id/restaurantRating"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:isIndicator="false"
+            android:numStars="5"
+            android:padding="@dimen/padding_5"
+            android:stepSize="1" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_5"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_5">
+
+            <TextView
+                android:id="@+id/deliveryFee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:fontFamily="monospace"
+                android:padding="@dimen/padding_5"
+                android:text="@string/delivery_fee"
+                android:textColor="@android:color/background_dark"
+                android:textSize="@dimen/text_size_16"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/restaurantStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:fontFamily="monospace"
+                android:padding="@dimen/padding_5"
+                android:text="@string/restaurant_status"
+                android:textColor="@android:color/background_dark"
+                android:textSize="@dimen/text_size_16"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

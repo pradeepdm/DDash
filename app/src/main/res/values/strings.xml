@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">DDash</string>
+    <string name="no_image">No image</string>
+    <string name="restaurant_name">Restaurant Name</string>
+    <string name="food_description">Food description</string>
+    <string name="delivery_fee">deliveryFee</string>
+    <string name="restaurant_status">status</string>
+    <string name="error_message">Error fetching restaurants</string>
+    <string name="error_fetching_restaurant">Error fetching restaurant information</string>
+    <string name="rating_text">Rating: 4.0 / 5.0</string>
+</resources>
